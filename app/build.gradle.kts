@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
 
@@ -42,11 +42,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Apps.kotlinCompilerExtensionVersion
     }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+
+    packagingOptions.resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+//    packagingOptions {
+//        resources {
+//            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+//        }
+//    }
 }
 
 dependencies {
@@ -72,5 +74,4 @@ dependencies {
     implementation(Libs.hilt_android)
     kapt(Libs.hilt_compiler)
     implementation(Libs.hilt_navigation_compose)
-
 }
