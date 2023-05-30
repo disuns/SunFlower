@@ -1,20 +1,21 @@
+@file:Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.application)
+    alias(libs.plugins.jetbrain.android)
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = Apps.applicationId
-    compileSdk = Apps.compileSdk
+    namespace = "com.practice.sunflower"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = Apps.applicationId
-        minSdk = Apps.minSdk
-        targetSdk = Apps.targetSdk
-        versionCode = Apps.versionCode
-        versionName = Apps.versionName
+        applicationId = "com.practice.sunflower"
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -40,7 +41,7 @@ android {
         dataBinding = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Apps.kotlinCompilerExtensionVersion
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
 
     packagingOptions.resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
@@ -52,27 +53,29 @@ android {
 }
 
 dependencies {
-    implementation(Libs.androidx_core)
-    implementation(platform(Libs.kotlin_bom))
-    implementation(Libs.lifecycle_runtime)
-    implementation(Libs.compose_activity)
-    implementation(platform(Libs.compose_bom))
-    implementation(Libs.compose_ui)
-    implementation(Libs.compose_ui_graphics)
-    implementation(Libs.compose_ui_tooling_preview)
-    implementation(Libs.compose_material3)
-    implementation(Libs.material)
+    implementation(libs.androidx.core)
+    implementation(platform(libs.kotlin.bom))
+    implementation(libs.lifecycle.runtime)
+    implementation(libs.compose.activity)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.androidx.compose)
+//    implementation(libs.compose.ui)
+//    implementation(libs.compose.ui.graphics)
+//    implementation(libs.compose.ui.tooling.preview)
+//    implementation(libs.compose.material3)
+    implementation(libs.material)
 
-    testImplementation(TestLibs.junit)
+    testImplementation(libs.junit)
 
-    androidTestImplementation(AndroidTestLibs.test_junit)
-    androidTestImplementation(AndroidTestLibs.espresso)
-    androidTestImplementation(AndroidTestLibs.compose_junit)
+    androidTestImplementation(libs.test.junit)
+    androidTestImplementation(libs.espresso)
+    androidTestImplementation(libs.compose.junit)
 
-    debugImplementation(DebugLibs.compose_tooling)
-    debugImplementation(DebugLibs.compose_test_manifest)
+    debugImplementation(libs.bundles.androidx.compose.debug.test)
+//    debugImplementation(libs.compose.tooling)
+//    debugImplementation(libs.compose.test.manifest)
 
-    implementation(Libs.hilt_android)
-    kapt(Libs.hilt_compiler)
-    implementation(Libs.hilt_navigation_compose)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 }
