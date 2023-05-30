@@ -18,8 +18,8 @@ object Versions {
     const val lifecycle = "2.3.1"
     const val androidx_compose_activity = "1.5.1"
     const val compose_bom = "2022.10.00"
+    const val material = "1.9.0"
 
-    //쓸거긴함
     const val hilt = "2.44"
     const val hilt_navigation_compose = "1.0.0"
 
@@ -34,6 +34,7 @@ object Libs {
     const val androidx_core = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val kotlin_bom = "org.jetbrains.kotlin:kotlin-bom:${Versions.kotlin_bom}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
+    const val material = "com.google.android.material:material:${Versions.material}"
 
     //hilt
     const val hilt_android = "com.google.dagger:hilt-android:${Versions.hilt}"

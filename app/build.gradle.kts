@@ -61,6 +61,7 @@ dependencies {
     implementation(Libs.compose_ui_graphics)
     implementation(Libs.compose_ui_tooling_preview)
     implementation(Libs.compose_material3)
+    implementation(Libs.material)
 
     testImplementation(TestLibs.junit)
 
