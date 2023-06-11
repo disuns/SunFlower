@@ -14,6 +14,8 @@ junit = "4.13.2"
 test_junit = "1.1.5"
 espresso = "3.5.1"
 compose_junit = "1.0.0-alpha12"
+accompanist = "0.28.0"
+room = "2.5.0"
 #plugin
 application = "8.0.2"
 library = "8.0.2"
@@ -43,6 +45,11 @@ compose_ui_graphics = {module = "androidx.compose.ui:ui-graphics" }
 compose_ui_tooling_preview = {module = "androidx.compose.ui:ui-tooling-preview" }
 compose_material3 = {module = "androidx.compose.material3:material3" }
 hilt_navigation_compose = {module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt_navigation_compose" }
+accompanist-themeadapter-material = { module = "com.google.accompanist:accompanist-themeadapter-material", version.ref = "accompanist" }
+#room
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 #TestLibs
 junit = {module = "junit:junit", version.ref = "junit"}
 #DebugLibs
@@ -55,4 +62,5 @@ compose_junit = {module = "androidx.compose.ui:ui-test-junit4", version.ref = "c
 [bundles]
 androidx-compose = ["compose_ui","compose_ui_graphics","compose_ui_tooling_preview","compose_material3"]
 androidx-compose-debug-test = ["compose_tooling", "compose_test_manifest"]
+androidx-room = ["room-compiler", "room-ktx", "room-runtime"]
 
