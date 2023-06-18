@@ -22,7 +22,11 @@ android {
             useSupportLibrary = true
         }
     }
-
+    configurations {
+        implementation {
+            exclude(group = "org.jetbrains", module = "annotations")
+        }
+    }
     buildTypes {
         getByName("release"){
             isMinifyEnabled = false
@@ -43,7 +47,6 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.2"
     }
-
     packagingOptions.resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
 //    packagingOptions {
 //        resources {
