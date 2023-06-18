@@ -66,12 +66,15 @@ dependencies {
     implementation(libs.material)
     implementation(libs.accompanist.themeadapter.material)
     implementation(libs.bundles.androidx.room)
+    implementation(libs.work.runtime.ktx)
+    implementation(libs.gson)
 
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.test.junit)
     androidTestImplementation(libs.espresso)
     androidTestImplementation(libs.compose.junit)
+    androidTestImplementation(libs.work.testing)
 
     debugImplementation(libs.bundles.androidx.compose.debug.test)
 //    debugImplementation(libs.compose.tooling)
