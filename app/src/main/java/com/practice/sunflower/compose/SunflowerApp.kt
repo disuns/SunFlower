@@ -9,33 +9,26 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.practice.sunflower.compose.home.HomeScreen
 import com.practice.sunflower.compose.home.SunflowerPage
 import com.practice.sunflower.viewmodels.PlantListViewModel
 
 @Composable
-fun SunflowerApp(
-    onPageChange : (SunflowerPage) -> Unit = {},
-    onAttached: (Toolbar) -> Unit = {},
-    plantListViewModel : PlantListViewModel = hiltViewModel()
-){
+fun SunflowerApp(){
     val navController = rememberNavController()
     SunFlowerNavHost(
-        plantListViewModel = plantListViewModel,
-        navController = navController,
-        onPageChange = onPageChange,
-        onAttached = onAttached
+        navController = navController
     )
 }
 
 @Composable
 fun SunFlowerNavHost(
-    navController: NavHostController,
-    onPageChange: (SunflowerPage) -> Unit = {},
-    onAttached: (Toolbar) -> Unit = {},
-    plantListViewModel: PlantListViewModel = hiltViewModel(),
+    navController: NavHostController
 ) {
     val activity = (LocalContext.current as Activity)
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") {}
+        composable("home") {
+            HomeScreen()
+        }
     }
 }

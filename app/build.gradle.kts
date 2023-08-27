@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.practice.sunflower"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.practice.sunflower"
@@ -58,19 +58,17 @@ android {
 dependencies {
     implementation(libs.androidx.core)
     implementation(platform(libs.kotlin.bom))
-    implementation(libs.lifecycle.runtime)
     implementation(libs.compose.activity)
     implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.androidx.compose)
-//    implementation(libs.compose.ui)
-//    implementation(libs.compose.ui.graphics)
-//    implementation(libs.compose.ui.tooling.preview)
-//    implementation(libs.compose.material3)
     implementation(libs.material)
     implementation(libs.accompanist.themeadapter.material)
-    implementation(libs.bundles.androidx.room)
     implementation(libs.work.runtime.ktx)
     implementation(libs.gson)
+    implementation(libs.accompanist.systemuicontroller)
+
+    implementation(libs.bundles.androidx.room)
+    implementation(libs.bundles.androidx.compose)
+    implementation(libs.bundles.androidx.lifecycle)
 
     testImplementation(libs.junit)
 
@@ -80,8 +78,6 @@ dependencies {
     androidTestImplementation(libs.work.testing)
 
     debugImplementation(libs.bundles.androidx.compose.debug.test)
-//    debugImplementation(libs.compose.tooling)
-//    debugImplementation(libs.compose.test.manifest)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

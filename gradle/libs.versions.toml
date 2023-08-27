@@ -2,25 +2,26 @@
 #apps
 gradle = "3.5.2"
 #libs
-androidxCore = "1.8.0"
+androidxCore = "1.10.1"
 kotlin_bom = "1.8.0"
-lifecycle = "2.3.1"
-androidx_compose_activity = "1.5.1"
-compose_bom = "2022.10.00"
+lifecycle = "2.6.1"
+androidx_compose_activity = "1.7.2"
+compose_bom = "2023.06.01"
 material = "1.9.0"
 hilt = "2.44"
 hilt_navigation_compose = "1.0.0"
 junit = "4.13.2"
 test_junit = "1.1.5"
 espresso = "3.5.1"
-compose_junit = "1.0.0-alpha12"
+composeLatest = "1.4.0-alpha03"
 accompanist = "0.28.0"
-room = "2.5.0"
-work = "2.8.0"
+room = "2.5.2"
+work = "2.8.1"
 gson = "2.10.1"
+systemuicontroller = "0.30.1"
 #plugin
-application = "8.0.2"
-library = "8.0.2"
+application = "8.1.1"
+library = "8.1.1"
 jetbrain_android = "1.7.20"
 
 [plugins]
@@ -33,7 +34,11 @@ hilt = {id= "com.google.dagger.hilt.android", version.ref = "hilt"}
 [libraries]
 androidx_core = {module = "androidx.core:core-ktx", version.ref = "androidxCore"}
 kotlin_bom = {group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin_bom" }
+#lifecycle
 lifecycle_runtime = {module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle"}
+lifecycle_livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+lifecycle_viewmodel_compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+lifecycle_viewmodel_ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 material = {module = "com.google.android.material:material", version.ref = "material"}
 #hilt
 hilt_android = {module = "com.google.dagger:hilt-android", version.ref = "hilt"}
@@ -46,8 +51,11 @@ compose_ui = {module = "androidx.compose.ui:ui"}
 compose_ui_graphics = {module = "androidx.compose.ui:ui-graphics" }
 compose_ui_tooling_preview = {module = "androidx.compose.ui:ui-tooling-preview" }
 compose_material3 = {module = "androidx.compose.material3:material3" }
+compose_runtime = { module = "androidx.compose.runtime:runtime", version.ref = "composeLatest" }
+compose_runtime_livedata = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "composeLatest" }
+
 hilt_navigation_compose = {module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt_navigation_compose" }
-accompanist-themeadapter-material = { module = "com.google.accompanist:accompanist-themeadapter-material", version.ref = "accompanist" }
+accompanist_themeadapter_material = { module = "com.google.accompanist:accompanist-themeadapter-material", version.ref = "accompanist" }
 #room
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
@@ -56,6 +64,8 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
 #gson
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+#systemUiController
+accompanist_systemuicontroller = {module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "systemuicontroller"}
 #TestLibs
 junit = {module = "junit:junit", version.ref = "junit"}
 #DebugLibs
@@ -64,10 +74,12 @@ compose_test_manifest = {module = "androidx.compose.ui:ui-test-manifest" }
 #AndroidTestLibs
 test_junit = {module = "androidx.test.ext:junit", version.ref = "test_junit" }
 espresso = {module = "androidx.test.espresso:espresso-core", version.ref = "espresso"}
-compose_junit = {module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose_junit"}
+compose_junit = {module = "androidx.compose.ui:ui-test-junit4", version.ref = "composeLatest"}
 work-testing = { module = "androidx.work:work-testing", version.ref = "work" }
 [bundles]
-androidx-compose = ["compose_ui","compose_ui_graphics","compose_ui_tooling_preview","compose_material3"]
+androidx-compose = ["compose_ui","compose_ui_graphics","compose_ui_tooling_preview","compose_material3", "compose_runtime", "compose_runtime_livedata"]
 androidx-compose-debug-test = ["compose_tooling", "compose_test_manifest"]
 androidx-room = ["room-compiler", "room-ktx", "room-runtime"]
+androidx-lifecycle = ["lifecycle_runtime", "lifecycle_livedata-ktx", "lifecycle_viewmodel_ktx", "lifecycle_viewmodel_compose"]
+
 
