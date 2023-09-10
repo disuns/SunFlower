@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.SunFlower" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Base.Theme.Sunflower" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+    <style name="Theme.SunFlower" parent="Base.Theme.Sunflower" />
 </resources>

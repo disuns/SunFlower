@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.bundles.androidx.compose)
     implementation(libs.bundles.androidx.lifecycle)
 
+    implementation(libs.glide)
+
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.test.junit)

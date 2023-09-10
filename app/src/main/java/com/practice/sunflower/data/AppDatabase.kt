@@ -8,6 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
+import com.practice.sunflower.data.dao.GardenPlantingDao
 import com.practice.sunflower.data.dao.PlantDao
 import com.practice.sunflower.utilities.DATABASE_NAME
 import com.practice.sunflower.utilities.PLANT_DATA_FILENAME
@@ -16,6 +17,7 @@ import com.practice.sunflower.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 
 @Database(entities = [GardenPlanting::class, Plant::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun gardenPlantingDao(): GardenPlantingDao
     abstract fun plantDao(): PlantDao
     companion object{
         @Volatile private var instance : AppDatabase? = null
